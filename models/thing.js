@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
-
 const thingSchema = mongoose.Schema({
-  prenom: { type: String, required: false },
-  email: { type: String, required: false },
- telephone: { type: String, required: false },
-
-});
-
+    nomFormation: { type: String, required: true },
+    dateFormation: { type: Date, required: true},
+    maxParticipants: { type: Number, required: true},
+    thematique: { type: String, required: true},
+    prix: { type: Number, required: true},
+    dateAjout: { type: Date, default: Date.now },
+    dateModification: { type: Date, default: Date.now }
+ });
+ 
 module.exports = mongoose.model('Thing', thingSchema);
