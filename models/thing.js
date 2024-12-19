@@ -7,7 +7,7 @@ const thingSchema = mongoose.Schema({
     prix: { type: Number, required: true},
     dateAjout: { type: Date, default: Date.now },
     dateModification: { type: Date, default: Date.now },
-    // description : {type: String, reqéuired : r}
-}, { timestamps: true }); // Ajoutez cette option pour gérer automatiquement createdAt et updatedAt
+    // description : {type: String, reqéuired : true}
+}, { timestamps: true }); 
  
 module.exports = mongoose.model('Thing', thingSchema);

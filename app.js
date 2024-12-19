@@ -6,7 +6,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 
 const app = express();
 
-// Configuration Swagger
+// Configuration wu Swagger
 const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
@@ -17,7 +17,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'https://backend-3yq5.onrender.com', // URL de ton serveur
+        url: 'https://backend-3yq5.onrender.com', 
 
       },
     ],
@@ -28,7 +28,7 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Connexion à MongoDB
+// Connexion a mon MongoDB
 mongoose.connect(
   'mongodb+srv://xuddoos_18:Xuddoos18@cluster0.gv792.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 )
@@ -166,7 +166,6 @@ app.post('/api/formations', (req, res) => {
 });
 
 
-// Exemple dans votre fichier backend (Node.js/Express)
 app.get('/api/formations/date/:date', async (req, res) => {
    const { date } = req.params;
    try {
@@ -180,8 +179,8 @@ app.get('/api/formations/date/:date', async (req, res) => {
 
 app.get('/api/formations', (req, res, next) => {
     Thing.find()
-        .then(formations => {  // Change 'things' par 'formations' pour que ce soit plus clair
-            res.status(200).json(formations);  // Retourne les formations en réponse
+        .then(formations => {  
+            res.status(200).json(formations);  
         })
         .catch(error => res.status(400).json({ error: 'Erreur lors de la récupération des formations', details: error }));
 });
@@ -194,7 +193,7 @@ app.put('/api/formations/:id', (req, res) => {
        ...req.body, 
        dateModification: new Date() 
      }, 
-     { new: true } // Retourne le document mis à jour
+     { new: true } 
    )
    .then(updatedFormation => {
      res.status(200).json(updatedFormation);
@@ -202,19 +201,19 @@ app.put('/api/formations/:id', (req, res) => {
    .catch(error => res.status(400).json({ error }));
 });
 
-// Récupérer une formation spécifique
+// Récupérer benn formation bu spécifique
 app.get('/api/formations/:id', (req, res) => {
    Thing.findOne({ _id: req.params.id })
      .then(thing => res.status(200).json(thing))
      .catch(error => res.status(404).json({ error }));
 });
 
-// Récupérer toutes les formations (avec tri et pagination)
+// Récupérer toutes les formations (ak tri et aussi pagination)
 app.get('/api/formations', async (req, res) => {
     try {
        const formations = await Thing.find()
           .sort({ dateFormation: 1 });
-       res.status(200).json(formations); // Renvoyer directement le tableau
+       res.status(200).json(formations); 
     } catch (error) {
        res.status(400).json({ error });
     }
