@@ -17,7 +17,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: 'http://localhost:3001', // URL de ton serveur
+        url: 'https://backend-3yq5.onrender.com', // URL de ton serveur
 
       },
     ],
